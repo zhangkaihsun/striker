@@ -1,26 +1,428 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
-  <meta charset="utf-8">
-  <meta name="descripion" content="Introduction to NTTU">
-  <meta name="keywords" content="NTTU, Library, Department of Applied Mathematics">
-  <meta name="author" content="Department of Applied Mathematics">
-  <meta name="viewport" content="width=device-width">
-  <title>足球介紹</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的最愛足球球星介紹網頁 (初學者作業)</title>
+    <style>
+        /* 初學者風格：簡單的背景色、基本字體與框線 */
+        body {
+            background-color: #E0F7FA; /* 很亮的淺藍色背景 */
+            font-family: "Times New Roman", Times, serif, "Microsoft JhengHei";
+            margin: 20px;
+            color: #000000;
+        }
+        
+        h1 {
+            color: #D32F2F;
+            text-align: center;
+            border-bottom: 3px dashed #FF9800;
+            padding-bottom: 10px;
+            background-color: #FFF9C4;
+        }
+
+        h2 {
+            color: #388E3C;
+            background-color: #C8E6C9;
+            padding: 5px;
+            border: 1px solid #4CAF50;
+        }
+
+        /* 導覽列：用表格或簡單清單模仿新手排版 */
+        .nav-menu {
+            text-align: center;
+            background-color: #FFCCBC;
+            border: 2px solid #FF5722;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .nav-btn {
+            background-color: #FFE0B2;
+            border: 2px outset #FF9800;
+            padding: 5px 10px;
+            margin: 3px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .nav-btn:hover {
+            background-color: #FFCC80;
+        }
+
+        /* 球星內容區塊 */
+        .player-card {
+            background-color: #FFFFFF;
+            border: 4px double #3F51B5;
+            padding: 20px;
+            margin-top: 10px;
+            display: none; /* 預設隱藏，透過 JS 切換 */
+        }
+
+        .player-card.active {
+            display: block; /* 顯示目前選中的球星 */
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #EEEEEE;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            color: #555555;
+            border-top: 1px dashed #999999;
+            padding-top: 10px;
+        }
+    </style>
 </head>
 <body>
-<h1>hi i am god!</h1>
-  <p>football</p>
-</body>
-</html>
-<!DOCTYPE html>
-<html>
-<body>
-<h1>This is heading 1</h1>
-<h2>This is heading 2</h2>
-<h3>This is heading 3</h3>
-<h4>This is heading 4</h4>
-<h5>This is heading 5</h5>
-<h6>This is heading 6</h6>
+
+    <h1>⚽ 我的足球大明星介紹網頁 ⚽</h1>
+    <p align="center"><i>歡迎來到我的第一個網頁！這裡介紹了 12 位超級厲害的足球員，點擊下方按鈕可以切換看不同球星喔～</i></p>
+
+    <!-- 導覽列：12位球星按鈕 -->
+    <div class="nav-menu">
+        <b>請選擇球星：</b><br><br>
+        <button class="nav-btn" onclick="showPlayer('ronaldo')">1. C. Ronaldo</button>
+        <button class="nav-btn" onclick="showPlayer('messi')">2. L. Messi</button>
+        <button class="nav-btn" onclick="showPlayer('neymar')">3. Neymar Jr</button>
+        <button class="nav-btn" onclick="showPlayer('mbappe')">4. K. Mbappé</button>
+        <button class="nav-btn" onclick="showPlayer('haaland')">5. E. Haaland</button>
+        <button class="nav-btn" onclick="showPlayer('olise')">6. M. Olise</button>
+        <button class="nav-btn" onclick="showPlayer('bellingham')">7. J. Bellingham</button>
+        <button class="nav-btn" onclick="showPlayer('dembele')">8. O. Dembélé</button>
+        <button class="nav-btn" onclick="showPlayer('vinicius')">9. Vinícius Jr</button>
+        <button class="nav-btn" onclick="showPlayer('yamal')">10. L. Yamal</button>
+        <button class="nav-btn" onclick="showPlayer('modric')">11. L. Modrić</button>
+        <button class="nav-btn" onclick="showPlayer('doue')">12. D. Doué</button>
+    </div>
+
+    <!-- 1. Cristiano Ronaldo -->
+    <div id="ronaldo" class="player-card active">
+        <h2>1. Cristiano Ronaldo (克里斯蒂亞諾·羅納度)</h2>
+        <p><b>綽號：</b> C羅 / CR7 / 總裁</p>
+        <p><b>出生年月日：</b> 1985年2月5日 | <b>國籍：</b> 🇵🇹 葡萄牙</p>
+        <p><b>場上位置：</b> 前鋒 (Striker / Winger)</p>
+        <h3>👕 待過的俱樂部與國家隊：</h3>
+        <ul>
+            <li>體育CP (Sporting CP)</li>
+            <li>曼聯 (Manchester United)</li>
+            <li>皇家馬德里 (Real Madrid)</li>
+            <li>尤文圖斯 (Juventus)</li>
+            <li>艾納斯 (Al-Nassr)</li>
+            <li><b>國家隊：</b> 葡萄牙國家足球隊 🇵🇹</li>
+        </ul>
+        <h3>📊 個人數據 (生涯大約統計)：</h3>
+        <table>
+            <tr><th>項目</th><th>數據</th></tr>
+            <tr><td>總出場數</td><td>約 1200+ 場</td></tr>
+            <tr><td>總進球數</td><td>約 900+ 球</td></tr>
+            <tr><td>生涯助攻</td><td>約 250+ 次</td></tr>
+        </table>
+        <h3>🏆 拿過的獎盃：</h3>
+        <p>歐洲國家盃冠軍 (1)、歐洲冠軍聯賽冠軍 (5)、英超/西甲/義甲聯賽冠軍、金球獎 (5次) 等無數榮譽。</p>
+    </div>
+
+    <!-- 2. Lionel Messi -->
+    <div id="messi" class="player-card">
+        <h2>2. Lionel Messi (萊昂內爾·梅西)</h2>
+        <p><b>綽號：</b> 小蚤 / 球王 / 官方GOAT</p>
+        <p><b>出生年月日：</b> 1987年6月24日 | <b>國籍：</b> 🇦🇷 阿根廷</p>
+        <p><b>場上位置：</b> 右邊鋒 / 前腰 / 前鋒</p>
+        <h3>👕 待過的俱樂部與國家隊：</h3>
+        <ul>
+            <li>巴塞隆納 (FC Barcelona)</li>
+            <li>巴黎聖日耳曼 (Paris Saint-Germain)</li>
+            <li>邁阿密國際 (Inter Miami)</li>
+            <li><b>國家隊：</b> 阿根廷國家足球隊 🇦🇷</li>
+        </ul>
+        <h3>📊 個人數據 (生涯大約統計)：</h3>
+        <table>
+            <tr><th>項目</th><th>數據</th></tr>
+            <tr><td>總出場數</td><td>約 1050+ 場</td></tr>
+            <tr><td>總進球數</td><td>約 830+ 球</td></tr>
+            <tr><td>生涯助攻</td><td>約 370+ 次</td></tr>
+        </table>
+        <h3>🏆 拿過的獎盃：</h3>
+        <p>世界盃冠軍 (1)、美洲盃冠軍 (2)、歐冠冠軍 (4)、西甲/法甲聯賽冠軍、金球獎 (8次 - 歷史最多)。</p>
+    </div>
+
+    <!-- 3. Neymar Jr -->
+    <div id="neymar" class="player-card">
+        <h2>3. Neymar Jr (內馬爾)</h2>
+        <p><b>綽號：</b> 森巴精靈 / 內少</p>
+        <p><b>出生年月日：</b> 1992年2月5日 | <b>國籍：</b> 🇧🇷 巴西</p>
+        <p><b>場上位置：</b> 左邊鋒 / 前腰</p>
+        <h3>👕 待過的俱樂部與國家隊：</h3>
+        <ul>
+            <li>桑托斯 (Santos)</li>
+            <li>巴塞隆納 (FC Barcelona)</li>
+            <li>巴黎聖日耳曼 (Paris Saint-Germain)</li>
+            <li>利雅德新月 (Al-Hilal)</li>
+            <li><b>國家隊：</b> 巴西國家足球隊 🇧🇷</li>
+        </ul>
+        <h3>📊 個人數據 (生涯大約統計)：</h3>
+        <table>
+            <tr><th>項目</th><th>數據</th></tr>
+            <tr><td>總出場數</td><td>約 700+ 場</td></tr>
+            <tr><td>總進球數</td><td>約 430+ 球</td></tr>
+            <tr><td>生涯助攻</td><td>約 260+ 次</td></tr>
+        </table>
+        <h3>🏆 拿過的獎盃：</h3>
+        <p>歐冠冠軍 (1)、解放者杯冠軍 (1)、西甲/法甲聯賽冠軍、奧運金牌 (1)。</p>
+    </div>
+
+    <!-- 4. Kylian Mbappé -->
+    <div id="mbappe" class="player-card">
+        <h2>4. Kylian Mbappé (基利安·姆巴佩)</h2>
+        <p><b>綽號：</b> 忍者龜 / 閃電</p>
+        <p><b>出生年月日：</b> 1998年12月20日 | <b>國籍：</b> 🇫🇷 法國</p>
+        <p><b>場上位置：</b> 前鋒 / 左邊鋒</p>
+        <h3>👕 待過的俱樂部與國家隊：</h3>
+        <ul>
+            <li>摩納哥 (AS Monaco)</li>
+            <li>巴黎聖日耳曼 (Paris Saint-Germain)</li>
+            <li>皇家馬德里 (Real Madrid)</li>
+            <li><b>國家隊：</b> 法國國家足球隊 🇫🇷</li>
+        </ul>
+        <h3>📊 個人數據 (生涯大約統計)：</h3>
+        <table>
+            <tr><th>項目</th><th>數據</th></tr>
+            <tr><td>總出場數</td><td>約 380+ 場</td></tr>
+            <tr><td>總進球數</td><td>約 300+ 球</td></tr>
+            <tr><td>生涯助攻</td><td>約 130+ 次</td></tr>
+        </table>
+        <h3>🏆 拿過的獎盃：</h3>
+        <p>世界盃冠軍 (1)、世界盃亞軍 (1)、法甲聯賽冠軍多次、法國盃冠軍等。</p>
+    </div>
+
+    <!-- 5. Erling Haaland -->
+    <div id="haaland" class="player-card">
+        <h2>5. Erling Haaland (埃林·哈蘭德)</h2>
+        <p><b>綽號：</b> 魔人布歐 / 機關槍</p>
+        <p><b>出生年月日：</b> 2000年7月21日 | <b>國籍：</b> 🇳🇴 挪威</p>
+        <p><b>場上位置：</b> 中鋒 (Striker)</p>
+        <h3>👕 待過的俱樂部與國家隊：</h3>
+        <ul>
+            <li>莫爾德 (Molde)</li>
+            <li>薩爾茨堡紅牛 (RB Salzburg)</li>
+            <li>多特蒙德 (Borussia Dortmund)</li>
+            <li>曼城 (Manchester City)</li>
+            <li><b>國家隊：</b> 挪威國家足球隊 🇳🇴</li>
+        </ul>
+        <h3>📊 個人數據 (生涯大約統計)：</h3>
+        <table>
+            <tr><th>項目</th><th>數據</th></tr>
+            <tr><td>總出場數</td><td>約 280+ 場</td></tr>
+            <tr><td>總進球數</td><td>約 250+ 球</td></tr>
+            <tr><td>生涯助攻</td><td>約 50+ 次</td></tr>
+        </table>
+        <h3>🏆 拿過的獎盃：</h3>
+        <p>歐冠冠軍 (1)、英超聯賽冠軍、足總杯冠軍、英超金靴獎。</p>
+    </div>
+
+    <!-- 6. Michael Olise -->
+    <div id="olise" class="player-card">
+        <h2>6. Michael Olise (麥可·奧利斯)</h2>
+        <p><b>綽號：</b> 法國魔術師</p>
+        <p><b>出生年月日：</b> 2001年12月12日 | <b>國籍：</b> 🇫🇷 法國 (亦具英/尼/阿國籍背景)</p>
+        <p><b>場上位置：</b> 右邊鋒 / 前腰</p>
+        <h3>👕 待過的俱樂部與國家隊：</h3>
+        <ul>
+            <li>雷丁 (Reading)</li>
+            <li>水晶宮 (Crystal Palace)</li>
+            <li>拜仁慕尼黑 (Bayern Munich)</li>
+            <li><b>國家隊：</b> 法國國家足球隊 🇫🇷</li>
+        </ul>
+        <h3>📊 個人數據 (生涯大約統計)：</h3>
+        <table>
+            <tr><th>項目</th><th>數據</th></tr>
+            <tr><td>總出場數</td><td>約 180+ 場</td></tr>
+            <tr><td>總進球數</td><td>約 30+ 球</td></tr>
+            <tr><td>生涯助攻</td><td>約 50+ 次</td></tr>
+        </table>
+        <h3>🏆 拿過的獎盃：</h3>
+        <p>巴黎奧運足球銀牌 (法國U23)、德甲聯賽亮眼新星。</p>
+    </div>
+
+    <!-- 7. Jude Bellingham -->
+    <div id="bellingham" class="player-card">
+        <h2>7. Jude Bellingham (裘德·貝林漢姆)</h2>
+        <p><b>綽號：</b> Jobe的哥哥 / 皇馬新核心</p>
+        <p><b>出生年月日：</b> 2003年6月29日 | <b>國籍：</b> 🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格蘭</p>
+        <p><b>場上位置：</b> 前腰 / 中場</p>
+        <h3>👕 待過的俱樂部與國家隊：</h3>
+        <ul>
+            <li>伯明罕城 (Birmingham City)</li>
+            <li>多特蒙德 (Borussia Dortmund)</li>
+            <li>皇家馬德里 (Real Madrid)</li>
+            <li><b>國家隊：</b> 英格蘭國家足球隊 🏴󠁧󠁢󠁥󠁮󠁧󠁿</li>
+        </ul>
+        <h3>📊 個人數據 (生涯大約統計)：</h3>
+        <table>
+            <tr><th>項目</th><th>數據</th></tr>
+            <tr><td>總出場數</td><td>約 230+ 場</td></tr>
+            <tr><td>總進球數</td><td>約 60+ 球</td></tr>
+            <tr><td>生涯助攻</td><td>約 40+ 次</td></tr>
+        </table>
+        <h3>🏆 拿過的獎盃：</h3>
+        <p>歐冠冠軍 (1)、西甲聯賽冠軍、科帕獎 (金童獎)、西甲最佳球員。</p>
+    </div>
+
+    <!-- 8. Ousmane Dembele -->
+    <div id="dembele" class="player-card">
+        <h2>8. Ousmane Dembélé (烏斯曼·登貝萊)</h2>
+        <p><b>綽號：</b> 蚊子 / 雙足怪</p>
+        <p><b>出生年月日：</b> 1997年5月15日 | <b>國籍：</b> 🇫🇷 法國</p>
+        <p><b>場上位置：</b> 右邊鋒 / 左邊鋒</p>
+        <h3>👕 待過的俱樂部與國家隊：</h3>
+        <ul>
+            <li>雷恩 (Rennes)</li>
+            <li>多特蒙德 (Borussia Dortmund)</li>
+            <li>巴塞隆納 (FC Barcelona)</li>
+            <li>巴黎聖日耳曼 (Paris Saint-Germain)</li>
+            <li><b>國家隊：</b> 法國國家足球隊 🇫🇷</li>
+        </ul>
+        <h3>📊 個人數據 (生涯大約統計)：</h3>
+        <table>
+            <tr><th>項目</th><th>數據</th></tr>
+            <tr><td>總出場數</td><td>約 320+ 場</td></tr>
+            <tr><td>總進球數</td><td>約 80+ 球</td></tr>
+            <tr><td>生涯助攻</td><td>約 90+ 次</td></tr>
+        </table>
+        <h3>🏆 拿過的獎盃：</h3>
+        <p>世界盃冠軍 (1)、西甲聯賽冠軍、法甲聯賽冠軍、法國盃冠軍。</p>
+    </div>
+
+    <!-- 9. Vinicius Jr -->
+    <div id="vinicius" class="player-card">
+        <h2>9. Vinícius Jr (維尼修斯·儒尼奧爾)</h2>
+        <p><b>綽號：</b> Vini Jr / 小熊</p>
+        <p><b>出生年月日：</b> 2000年7月12日 | <b>國籍：</b> 🇧🇷 巴西</p>
+        <p><b>場上位置：</b> 左邊鋒 (Left Winger)</p>
+        <h3>👕 待過的俱樂部與國家隊：</h3>
+        <ul>
+            <li>弗拉門戈 (Flamengo)</li>
+            <li>皇家馬德里 (Real Madrid)</li>
+            <li><b>國家隊：</b> 巴西國家足球隊 🇧🇷</li>
+        </ul>
+        <h3>📊 個人數據 (生涯大約統計)：</h3>
+        <table>
+            <tr><th>項目</th><th>數據</th></tr>
+            <tr><td>總出場數</td><td>約 300+ 場</td></tr>
+            <tr><td>總進球數</td><td>約 90+ 球</td></tr>
+            <tr><td>生涯助攻</td><td>約 80+ 次</td></tr>
+        </table>
+        <h3>🏆 拿過的獎盃：</h3>
+        <p>歐冠冠軍 (2 - 決賽進球者)、西甲聯賽冠軍 (3)、西班牙超級盃、世俱杯冠軍。</p>
+    </div>
+
+    <!-- 10. Lamine Yamal -->
+    <div id="yamal" class="player-card">
+        <h2>10. Lamine Yamal (拉明·亞馬爾)</h2>
+        <p><b>綽號：</b> 巴薩金童 / 天才少年</p>
+        <p><b>出生年月日：</b> 2007年7月13日 | <b>國籍：</b> 🇪🇸 西班牙</p>
+        <p><b>場上位置：</b> 右邊鋒 (Right Winger)</p>
+        <h3>👕 待過的俱樂部與國家隊：</h3>
+        <ul>
+            <li>巴塞隆納 (FC Barcelona)</li>
+            <li><b>國家隊：</b> 西班牙國家足球隊 🇪🇸</li>
+        </ul>
+        <h3>📊 個人數據 (生涯大約統計)：</h3>
+        <table>
+            <tr><th>項目</th><th>數據</th></tr>
+            <tr><td>總出場數</td><td>約 80+ 場</td></tr>
+            <tr><td>總進球數</td><td>約 20+ 球</td></tr>
+            <tr><td>生涯助攻</td><td>約 30+ 次</td></tr>
+        </table>
+        <h3>🏆 拿過的獎盃：</h3>
+        <p>歐洲國家盃冠軍 (2024年西班牙主力、賽事最佳年輕球員)、西甲聯賽冠軍。</p>
+    </div>
+
+    <!-- 11. Luka Modric -->
+    <div id="modric" class="player-card">
+        <h2>11. Luka Modrić (盧卡·莫德里奇)</h2>
+        <p><b>綽號：</b> 魔笛 / 克國大師</p>
+        <p><b>出生年月日：</b> 1985年9月9日 | <b>國籍：</b> 🇭🇷 克羅埃西亞</p>
+        <p><b>場上位置：</b> 中場 (Midfielder / Playmaker)</p>
+        <h3>👕 待過的俱樂部與國家隊：</h3>
+        <ul>
+            <li>薩格勒布迪納摩 (Dinamo Zagreb)</li>
+            <li>熱刺 (Tottenham Hotspur)</li>
+            <li>皇家馬德里 (Real Madrid)</li>
+            <li><b>國家隊：</b> 克羅埃西亞國家足球隊 🇭🇷</li>
+        </ul>
+        <h3>📊 個人數據 (生涯大約統計)：</h3>
+        <table>
+            <tr><th>項目</th><th>數據</th></tr>
+            <tr><td>總出場數</td><td>約 900+ 場</td></tr>
+            <tr><td>總進球數</td><td>約 120+ 球</td></tr>
+            <tr><td>生涯助攻</td><td>約 150+ 次</td></tr>
+        </table>
+        <h3>🏆 拿過的獎盃：</h3>
+        <p>歐冠冠軍 (6 - 傳奇紀錄)、西甲聯賽冠軍、世界盃金球獎及亞軍/季軍、金球獎 (1次，打破梅羅壟斷)。</p>
+    </div>
+
+    <!-- 12. Desire Doue -->
+    <div id="doue" class="player-card">
+        <h2>12. Désiré Doué (德西雷·杜埃)</h2>
+        <p><b>綽號：</b> 法國新星</p>
+        <p><b>出生年月日：</b> 2005年6月3日 | <b>國籍：</b> 🇫🇷 法國</p>
+        <p><b>場上位置：</b> 前腰 / 邊鋒 / 中場</p>
+        <h3>👕 待過的俱樂部與國家隊：</h3>
+        <ul>
+            <li>雷恩 (Rennes)</li>
+            <li>巴黎聖日耳曼 (Paris Saint-Germain)</li>
+            <li><b>國家隊：</b> 法國青年隊 / 法國國家足球隊 🇫🇷</li>
+        </ul>
+        <h3>📊 個人數據 (生涯大約統計)：</h3>
+        <table>
+            <tr><th>項目</th><th>數據</th></tr>
+            <tr><td>總出場數</td><td>約 80+ 場</td></tr>
+            <tr><td>總進球數</td><td>約 15+ 球</td></tr>
+            <tr><td>生涯助攻</td><td>約 15+ 次</td></tr>
+        </table>
+        <h3>🏆 拿過的獎盃：</h3>
+        <p>巴黎奧運足球銀牌 (法國U23)、法甲聯賽亮眼潛力新星。</p>
+    </div>
+
+    <script>
+        // JavaScript 函數：用來切換顯示不同的球星卡片
+        function showPlayer(playerId) {
+            // 1. 取得所有球星卡片
+            var cards = document.getElementsByClassName('player-card');
+            
+            // 2. 迴圈將所有卡片隱藏 (移除 active 樣式)
+            for (var i = 0; i < cards.length; i++) {
+                cards[i].classList.remove('active');
+            }
+            
+            // 3. 顯示被點擊的那一張卡片
+            var targetCard = document.getElementById(playerId);
+            if (targetCard) {
+                targetCard.classList.add('active');
+            }
+        }
+    </script>
+
+    <div class="footer">
+        <p>© 2026 我的第一個網頁作業 - 足球球星介紹 | 使用 HTML + CSS + JS 製作</p>
+    </div>
+
 </body>
 </html>
