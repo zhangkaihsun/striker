@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Page Title</title>
-</head>
-<boby>
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+<body>
+<h1 style="font-size:300%">This is a heading</h1>
+<p style="font-size:160%">This is a paragraph.</p>
+</body>
+</html>
+<html>
+<body>
+<h1 style="font-size:300%; color:blue">This is a heading</h1>
+<p style="font-size:160%; color:red">This is a paragraph.</p>
 </body>
 </html>
